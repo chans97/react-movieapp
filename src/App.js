@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+function Potato({ fav, how }) {
+  return (
+    <h1>
+      i like {fav}
+      <br></br>
+      it is {how}
+    </h1>
+  );
+}
+
+const foodilike = [
+  {
+    name: "kimchi",
+    number: 1,
+  },
+  {
+    name: "nana",
+    number: 2,
+  },
+  {
+    name: "mama",
+    number: 3,
+  },
+  {
+    name: "papa",
+    number: 4,
+  },
+];
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>hello</h1>
+      {foodilike.map((current) => (
+        <Potato key={current.number} fav={current.name} how={current.number} />
+      ))}
     </div>
   );
 }
