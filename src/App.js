@@ -1,14 +1,20 @@
 import React from "react";
-
-function Potato({ fav, how }) {
+import PropTypes from "prop-types";
+function Food({ fav, how, rating }) {
   return (
     <h1>
       i like {fav}
       <br></br>
       it is {how}
+      star {rating}
     </h1>
   );
 }
+
+Food.propTypes = {
+  fav: PropTypes.string.isRequired,
+  rating: PropTypes.string.isRequired
+};
 
 const foodilike = [
   {
@@ -33,8 +39,13 @@ function App() {
   return (
     <div className="App">
       <h1>hello</h1>
-      {foodilike.map((current) => (
-        <Potato key={current.number} fav={current.name} how={current.number} />
+      {foodilike.map(current => (
+        <Food
+          fav={current.name}
+          key={current.number}
+          how={current.number}
+          rating={current.number}
+        />
       ))}
     </div>
   );
